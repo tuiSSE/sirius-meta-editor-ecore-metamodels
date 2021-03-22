@@ -32,3 +32,5 @@ graph LR
 |ArchitectureImpl (aka DomainImpl) | http://e4sm-projekt.de/ecore/ari |
 |Commons | http://e4sm-projekt.de/ecore/com |
 |ExternalLib | http://e4sm-projekt.de/ecore/el |
+
+Main entry point: https://github.com/tuiSSE/sirius-meta-editor
