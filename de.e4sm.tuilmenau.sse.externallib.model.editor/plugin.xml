@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated externalLib -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.e4sm.tuilmenau.sse.externallib.model.externalLib.presentation.ExternalLibModelWizardID"
+            name="%_UI_ExternalLibModelWizard_label"
+            class="de.e4sm.tuilmenau.sse.externallib.model.externalLib.presentation.ExternalLibModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExternalLibModelFile.gif">
+         <description>%_UI_ExternalLibModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated externalLib -->
+      <editor
+            id="de.e4sm.tuilmenau.sse.externallib.model.externalLib.presentation.ExternalLibEditorID"
+            name="%_UI_ExternalLibEditor_label"
+            icon="icons/full/obj16/ExternalLibModelFile.gif"
+            extensions="externallib"
+            class="de.e4sm.tuilmenau.sse.externallib.model.externalLib.presentation.ExternalLibEditor"
+            contributorClass="de.e4sm.tuilmenau.sse.externallib.model.externalLib.presentation.ExternalLibActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

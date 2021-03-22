@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<el:ExternalLibrary
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:el="http://e4sm-projekt.de/ecore/el"
+    xsi:schemaLocation="http://e4sm-projekt.de/ecore/el externalLib.ecore"
+    name="Javascript"
+    type="JAVASCRIPT">
+  <packages
+      name="Math">
+    <functions
+        xsi:type="el:LibraryFunction"
+        name="round"
+        returnType="INTEGER">
+      <parameters
+          name="x"
+          type="NUMERIC"/>
+    </functions>
+    <functions
+        xsi:type="el:LibraryFunction"
+        name="sqrt"
+        returnType="DECIMAL">
+      <parameters
+          name="x"
+          type="NUMERIC"/>
+    </functions>
+    <functions
+        xsi:type="el:LibraryFunction"
+        name="abs"
+        description="Returns the absolute value of the given number"
+        returnType="NUMERIC">
+      <parameters
+          name="x"
+          type="NUMERIC"/>
+    </functions>
+    <functions
+        xsi:type="el:LibraryFunction"
+        name="random"
+        description="Returns a random number between 0 (inclusive) and 1 (exclusive)"
+        returnType="DECIMAL"/>
+    <constants
+        name="PI"/>
+    <constants
+        name="E"
+        description="Returns Euler's number"
+        value="DECIMAL"/>
+  </packages>
+</el:ExternalLibrary>

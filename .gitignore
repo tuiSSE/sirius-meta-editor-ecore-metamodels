@@ -1,0 +1,4 @@
+**/bin/
+**/.gradle/
+**/src-gen/
+**/.settings/

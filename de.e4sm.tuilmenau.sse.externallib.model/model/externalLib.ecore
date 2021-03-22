@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="externalLib" nsURI="http://e4sm-projekt.de/ecore/el" nsPrefix="el">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="com" value="platform:/resource/de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#/"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLibrary" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Language"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collections" upperBound="-1"
+        eType="#//FunctionCollection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" eType="#//Function"
+        containment="true" eOpposite="#//Function/externallibrary"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Type"
+        defaultValueLiteral="VOID"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externallibrary" lowerBound="1"
+        eType="#//ExternalLibrary" eOpposite="#//ExternalLibrary/functions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LibraryFunction" eSuperTypes="#//Function"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImplementedFunction" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Language">
+    <eLiterals name="CPP"/>
+    <eLiterals name="C" value="1"/>
+    <eLiterals name="JAVA" value="2"/>
+    <eLiterals name="PYTHON" value="3"/>
+    <eLiterals name="JAVASCRIPT" value="4"/>
+    <eLiterals name="CSHARP" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionCollection" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="#//Function"/>
+  </eClassifiers>
+</ecore:EPackage>

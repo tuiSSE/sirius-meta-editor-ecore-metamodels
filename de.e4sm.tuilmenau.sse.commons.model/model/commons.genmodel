@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.e4sm.tuilmenau.sse.commons.model/src" modelPluginID="de.e4sm.tuilmenau.sse.commons.model"
+    modelName="Commons" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>commons.ecore</foreignModel>
+  <genPackages prefix="Commons" basePackage="de.e4sm.tuilmenau.sse.commons.model"
+      disposableProviderFactory="true" ecorePackage="commons.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="commons.ecore#//Language">
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/CPP"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/C"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/JAVA"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/PYTHON"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/JAVASCRIPT"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Language/CSHARP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="commons.ecore#//Color">
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/black"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/white"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/red"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/blue"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/orange"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/green"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/gray"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/pink"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/brown"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/yellow"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Color/turquoise"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="commons.ecore#//Line">
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Line/solid"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Line/dash"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Line/dot"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Line/dash_dot"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="commons.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/DECIMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/CUSTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/DATETIME"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/NUMERIC"/>
+      <genEnumLiterals ecoreEnumLiteral="commons.ecore#//Type/VOID"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="commons.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commons.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commons.ecore#//NamedElement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commons.ecore#//NamedElement/version"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="architecture" nsURI="http://e4sm-projekt.de/ecore/ar" nsPrefix="ar">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="com" value="platform:/resource/de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#/"/>
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="el" value="platform:/resource/de.e4sm.tuilmenau.sse.externallib.model/model/externalLib.ecore#/"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Diagram" eSuperTypes="../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ModelElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="superTypeIsNotSelf superTypeIsCompatible propertiesWithSameName"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="superTypeIsNotSelf" value="self.isA &lt;> self"/>
+      <details key="superTypeIsCompatible" value="self.isA.oclIsUndefined() or self.oclIsKindOf(self.isA.oclType())"/>
+      <details key="propertiesWithSameName" value="self.isA.oclIsUndefined() or self.properties->forAll(p:Property | self.isA.properties->forAll(sp: Property|sp.name &lt;> p.name))"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isA" eType="#//ModelElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//ItemWithPort"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//ItemWithPort">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedChildren" upperBound="-1"
+        eType="#//ItemWithPort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invertAllowedChildren"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddOn" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedOnItems" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invertAllowedItems" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Architecture" eSuperTypes="../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diagrams" upperBound="-1"
+        eType="#//Diagram" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelements" upperBound="-1"
+        eType="#//ModelElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Metamodel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviors" upperBound="-1"
+        eType="#//Behavior" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge" eSuperTypes="#//Connector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bidirectional" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canConnectToSelf" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RangeConnection" eSuperTypes="#//Connector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true" eSuperTypes="#//ModelElement #//BlockStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+        eType="#//Connection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+        eType="#//Connection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//ModelElement #//LineStyle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinct" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemWithPort" abstract="true" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedPorts" upperBound="-1"
+        eType="#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invertAllowedPorts" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noDirectConnections" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metamodel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
+        eType="#//Connector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedTargets" upperBound="-1"
+        eType="#//Item"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockStyle" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Color"
+        defaultValueLiteral="white"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelColor" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="borderColor" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineStyle" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineStyle" eType="ecore:EEnum ../../de.e4sm.tuilmenau.sse.commons.model/model/commons.ecore#//Line"
+        defaultValueLiteral="solid"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behavior">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="ecore:EClass ../../de.e4sm.tuilmenau.sse.externallib.model/model/externalLib.ecore#//Function"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" lowerBound="1" eType="ecore:EClass ../../de.e4sm.tuilmenau.sse.externallib.model/model/externalLib.ecore#//Function"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postCondition" eType="ecore:EClass ../../de.e4sm.tuilmenau.sse.externallib.model/model/externalLib.ecore#//Function"/>
+  </eClassifiers>
+</ecore:EPackage>

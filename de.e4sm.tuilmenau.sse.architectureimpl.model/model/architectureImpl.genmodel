@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.e4sm.tuilmenau.sse.architectureimpl.model/src"
+    modelPluginID="de.e4sm.tuilmenau.sse.architectureimpl.model" modelName="ArchitectureImpl"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="11.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>architectureImpl.ecore</foreignModel>
+  <genPackages prefix="ArchitectureImpl" basePackage="de.e4sm.tuilmenau.sse.architectureimpl.model"
+      disposableProviderFactory="true" ecorePackage="architectureImpl.ecore#/">
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//ModelElement"/>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Node"/>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//Container/children"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Port">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//Port/owner"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Connector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//Connector/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//Edge/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//RangeConnector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//RangeConnector/targets"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//ConnectableElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//ConnectableElement/addons"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//Root/modelelements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architectureImpl.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//ContainableElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architectureImpl.ecore#//ContainableElement/container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architectureImpl.ecore#//ContainableElement/ports"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="architectureImpl.ecore#//AddOn"/>
+  </genPackages>
+</genmodel:GenModel>
